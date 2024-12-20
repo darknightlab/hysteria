@@ -14,18 +14,14 @@ v2board:
 acme:
   domains:
     - ${domain}
-  email: your@email.com
+  email: ${email}
+  type: dns
+  dns:
+    name: cloudflare
+    config:
+      cloudflare_api_token: {cloudflare_api_token}
 auth:
   type: v2board
-trafficStats:
-  listen: 127.0.0.1:7653
-acl:
-  inline:
-    - reject(10.0.0.0/8)
-    - reject(172.16.0.0/12)
-    - reject(192.168.0.0/16)
-    - reject(127.0.0.0/8)
-    - reject(fc00::/7)
 EOF
 fi
 
